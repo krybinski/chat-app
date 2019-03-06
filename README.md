@@ -1,29 +1,9 @@
-# chat-app
+# Simple chat app with socket.io
 
-## Project setup
-```
-npm install
-```
+## Run web app
+- run `npm install` in root directory
+- run `npm run serve` in root directory
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Run server
+- run `npm install` in server directory
+- run `npm run serve` in server directory
