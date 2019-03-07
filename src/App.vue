@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row mt-4 mb-4">
         <div class="col-md-6 offset-md-3">
-          <Chat />
+          <Chat/>
         </div>
       </div>
     </div>
@@ -11,19 +11,19 @@
 </template>
 
 <script>
-import Chat from './components/Chat.vue'
+import Chat from "./components/Chat.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Chat
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

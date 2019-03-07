@@ -2,12 +2,12 @@
   <div class="card">
     <div class="card-body">
       <div class="card-title">
-        <h3>Chat Group</h3>
+        <h3>Chat App</h3>
         <hr>
       </div>
       <div class="card-body">
         <div class="messages" v-for="(msg, index) in messages" :key="index">
-          <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
+          <Message :message="msg"/>
         </div>
       </div>
     </div>
@@ -15,31 +15,36 @@
       <form @submit.prevent="sendMessage">
         <div class="form-group">
           <label for="user">User:</label>
-          <input type="text" v-model="user" class="form-control">
+          <input type="text" v-model="user" class="form-control form-control-sm">
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
-          <input type="text" v-model="message" class="form-control">
+          <input type="text" v-model="message" class="form-control form-control-sm">
         </div>
-        <button type="submit" class="btn btn-success">Send</button>
+        <button type="submit" class="btn btn-dark btn-sm">Send</button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import io from 'socket.io-client';
+import io from "socket.io-client";
 
-import { SEND_MESSAGE, MESSAGE } from '../../common/constants';
+import Message from "./Message";
+
+import { SEND_MESSAGE, MESSAGE } from "../../common/constants";
 
 export default {
+  components: {
+    Message
+  },
   data() {
     return {
-      user: '',
-      message: '',
+      user: "",
+      message: "",
       messages: [],
-      socket: io('localhost:3001'),
-    }
+      socket: io("localhost:3001")
+    };
   },
   methods: {
     sendMessage(e) {
@@ -47,16 +52,16 @@ export default {
 
       this.socket.emit(SEND_MESSAGE, {
         user: this.user,
-        message: this.message,
+        message: this.message
       });
 
-      this.message = '';
+      this.message = "";
     }
   },
   mounted() {
-    this.socket.on(MESSAGE, (data) => {
+    this.socket.on(MESSAGE, data => {
       this.messages = [...this.messages, data];
     });
   }
-}
+};
 </script>
